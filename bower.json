@@ -1,0 +1,18 @@
+{
+  "name": "Cool",
+  "version": "0.0.0",
+  "authors": [
+    "Radian <craziestdavid@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "Snap.svg": "snap.svg#~0.4.1"
+  }
+}
