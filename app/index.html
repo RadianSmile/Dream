@@ -2,23 +2,202 @@
 <html>
 	<head>
 		<meta charset="utf-8">
+		<script type="text/javascript" src="js/jquery/dist/jquery.js"></script>
 		<script type="text/javascript" src="js/Snap.svg/dist/snap.svg.js"></script>
+
+
+		<script type="text/javascript" src="js/gsap/src/uncompressed/TweenMax.js"></script>
+		<script type="text/javascript" src="js/scrollmagic/scrollmagic/uncompressed/ScrollMagic.js"></script>
+		<script type="text/javascript" src="js/scrollmagic/scrollmagic/minified/plugins/debug.addIndicators.min.js"></script>
+		<script type="text/javascript" src="js/scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap.js"></script>
+		<script type="text/javascript" src="js/Dream.js"></script>
+
 		<link rel="stylesheet" href="css/canonical.css/canonical.min.css" media="screen" title="no title" charset="utf-8">
 		<title>峻鋒的異想世界</title>
 		<style rel="stylesheet">
+
 			#svg{
-				width: 100% ;
-				height: 100vh;
+				width: 1241px;
+				height: 500vh;
+				/*position: fixed;*/
+				left: 0 ;
+				top : 0 ;
+			}
+			#test {
+				margin-top: 1000px;
+			}
+			body {
+				background: rgb(240,240,240) ;
+				height: 2000px;
 			}
 		</style>
 	</head>
 	<body>
-		<svg id="svg">
-		</svg	>
+		<div id="fine">
+
+		</div>
+		<div style="width:100%">
+			<svg id="svg">
+				<defs>
+					<clipPath id="clip-path" transform="translate(-350.1 -250.89)"><ellipse cx="419.3" cy="297.45" rx="20.62" ry="28.6" transform="translate(116.01 712.54) rotate(-89.2)" style="fill:none"/></clipPath>
+
+					<polygon id="triangle1" points="0,173 200,173 100,0" style="fill:gray" />
+					<polygon id="triangle2"points="0,0 200,0 100,173" style="fill:gray" />
+				</defs>
+				<g id="background">
+
+				</g>
+				<use id="bee" x="50" y="00" xlink:href="img/svg/bee.svg#bee" />
+				<use id="triangle" x="100" y="200" xlink:href="img/svg/triangle.svg#triangle" />
+				<use id="pencil" x="100" y="300" xlink:href="img/svg/pencil.svg#pencil" />
+
+
+			</svg	>
+
+
+		</div>
+
+
 		<script type="text/javascript">
-		var s = Snap("#svg");
-		// Lets create big circle in the middle:
-		var bigCircle = s.circle(150, 150, 100);
+			var vh = $(window).height() ;
+			var s = Snap("#svg");
+
+
+
+			// Snap.load("img/svg/bee.svg",function(bee){
+			// 	var g = bee.select("g") ;
+			// 	s.append(g);
+			// 	// console.log(Snap(g)) ;
+				start();
+			// });
+
+		function start(){
+		// 	var bigCircle = $("#bigCircle")[0] ;
+		//
+		// 	// init controller
+		// 	var controller = new ScrollMagic.Controller();
+		// 	var scene = new ScrollMagic.Scene({triggerElement: "#test", duration: 500})
+		// 					// animate color and top border in relation to scroll position
+		// 					.setTween("#bee", 0.5, {attr:{"transform" : "translate(200,0)"},ease : Power1.easeInOut}) // the tween durtion can be omitted and defaults to 1
+		// 					.addIndicators({name: "test"}) // add indicators (requires plugin)
+		// 					.addTo(controller);
+		//
+		// 	console.log (bigCircle) ;
+		//
+		//
+
+
+
+
+
+					var flightpath = {
+						entry : {
+							curviness: 1.25,
+							autoRotate: true,
+							values: [
+									{x: 100,	y: -20},
+									{x: 300,	y: 10}
+								]
+						},
+						looping : {
+							curviness: 1.25,
+							autoRotate: true,
+							values: [
+									{x: 510,	y: 60},
+									{x: 620,	y: -60},
+									{x: 500,	y: -100},
+									{x: 380,	y: 20},
+									{x: 500,	y: 60},
+									{x: 580,	y: 20},
+									{x: 620,	y: 15}
+								]
+						},
+						leave : {
+							curviness: 1.25,
+							autoRotate: true,
+							values: [
+									{x: 660,	y: 20},
+									{x: 800,	y: 130},
+									{x: $(window).width() + 300,	y: -100},
+								]
+						}
+					};
+					// init controller
+					var controller = new ScrollMagic.Controller();
+
+					// create tween
+					var tween = new TimelineMax()
+						.add(TweenMax.to($("#bee"), 1.2, {css:{bezier:flightpath.entry}, ease:Power1.easeInOut}))
+						.add(TweenMax.to($("#bee"), 2, {css:{bezier:flightpath.looping}, ease:Power1.easeInOut}))
+						.add(TweenMax.to($("#bee"), 1, {css:{bezier:flightpath.leave}, ease:Power1.easeInOut}));
+
+					// build scene
+					var scene = new ScrollMagic.Scene({triggerElement: "body", duration: 500, offset: vh / 2 })
+						.setPin("#svg")
+						.setTween(tween)
+						.addIndicators() // add indicators (requires plugin)
+						.addTo(controller);
+
+
+					var tri1 = s.select("#triangle1");
+					var tri2 = s.select("#triangle2");
+					var bg = s.select ("#background") ;
+
+					sr = .5 ;  // scaleRate
+
+					var triangles = [] ;
+					for (var i = 0 ; i < $(window).width() ; i+= 100 * sr){
+						// var arr = [] ;
+						// triangles.push(arr) ;
+						for (var j = 0 ; j < $(window).height() ; j+= 173 * sr){
+							if  ((i % (200 * sr) <= 10 && j% (346 * sr) <= 10) ||
+									 (i % (200 * sr)  >= 10 && j% (346 * sr)  >= 10) ){
+								console.log (tri1.use());
+								var t = tri1.clone().attr({
+									transform : "translate("+i+","+j+") scale(.5)",
+									fill : '#ccffe6',
+
+								}).appendTo(bg);
+								// if (Math.floor(Math.random() * 100) < 2){
+									triangles.push (t);
+								// }
+							}else {
+								var t = tri2.clone().attr({
+									transform : "translate("+i+","+j+") scale(.5)",
+									fill : '#b3ecff',
+
+								}).appendTo(bg);
+								// if (Math.floor(Math.random() * 10) < 2){
+									triangles.push (t);
+								// }
+							}
+						}
+					}
+					console.log (triangles);
+					for (var i = 0 ; i < triangles.length && badJS(i) ; i++) ;
+
+					function badJS(i){
+						var bbox = triangles[i].getBBox() ;
+						var t = triangles[i] ;
+						setTimeout(function(){
+							t.animate( { 'fill' : getRandomColor() },20000).appendTo(bg);
+						},i * 200);
+						return true ;
+					}
+
+					function getRandomColor() {
+					    var letters = '0123456789ABCDEF'.split('');
+					    var color = '#';
+					    for (var i = 0; i < 6; i++ ) {
+					        color += letters[Math.floor(Math.random() * 16)];
+					    }
+					    return color;
+					}
+
+
+			}
 		</script>
+
+
 	</body>
 </html>
