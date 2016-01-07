@@ -56,7 +56,7 @@ $(function () {
     }
 
     var soundNotAllowed = function (error) {
-        h.innerHTML = "You must allow your microphone.";
+        // h.innerHTML = "You must allow your microphone.";
         console.log(error);
     }
 

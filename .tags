@@ -1,9 +1,3 @@
-soundAllowed	/Volumes/HDD/Users/Radian/Websites/Dream/bower_components/html-5-microphone-visualizer/js/index.js	/^    var soundAllowed = function (stream) {$/;"	function	line:6
-u	/Volumes/HDD/Users/Radian/Websites/Dream/bower_components/html-5-microphone-visualizer/js/index.js	/^        function u (){$/;"	function	line:33
-update	/Volumes/HDD/Users/Radian/Websites/Dream/bower_components/html-5-microphone-visualizer/js/index.js	/^          requestAnimationFrame(function update(){$/;"	function	line:34
-requestAnimationFrame	/Volumes/HDD/Users/Radian/Websites/Dream/bower_components/html-5-microphone-visualizer/js/index.js	/^          requestAnimationFrame(function update(){$/;"	function	line:34
-doDraw	/Volumes/HDD/Users/Radian/Websites/Dream/bower_components/html-5-microphone-visualizer/js/index.js	/^        var doDraw = function () {$/;"	function	line:47
-soundNotAllowed	/Volumes/HDD/Users/Radian/Websites/Dream/bower_components/html-5-microphone-visualizer/js/index.js	/^    var soundNotAllowed = function (error) {$/;"	function	line:58
 html	/Volumes/HDD/Users/Radian/Websites/Dream/app/maybe-scene1.html	/^<html>$/;"	function	line:2
 head	/Volumes/HDD/Users/Radian/Websites/Dream/app/maybe-scene1.html	/^<head>$/;"	function	line:4
 meta	/Volumes/HDD/Users/Radian/Websites/Dream/app/maybe-scene1.html	/^	<meta charset="utf-8">$/;"	function	line:5
@@ -138,3 +132,9 @@ svg	/Volumes/HDD/Users/Radian/Websites/Dream/app/index.html	/^<svg id="scene06" 
 script	/Volumes/HDD/Users/Radian/Websites/Dream/app/index.html	/^					<script type="text\/javascript">$/;"	function	line:399
 connect	/Volumes/HDD/Users/Radian/Websites/Dream/server.js	/^var connect = require('connect');$/;"	variable	line:1
 serveStatic	/Volumes/HDD/Users/Radian/Websites/Dream/server.js	/^var serveStatic = require('serve-static');$/;"	variable	line:2
+soundAllowed	/Volumes/HDD/Users/Radian/Websites/Dream/bower_components/html-5-microphone-visualizer/js/index.js	/^    var soundAllowed = function (stream) {$/;"	function	line:6
+u	/Volumes/HDD/Users/Radian/Websites/Dream/bower_components/html-5-microphone-visualizer/js/index.js	/^        function u (){$/;"	function	line:33
+update	/Volumes/HDD/Users/Radian/Websites/Dream/bower_components/html-5-microphone-visualizer/js/index.js	/^          requestAnimationFrame(function update(){$/;"	function	line:34
+requestAnimationFrame	/Volumes/HDD/Users/Radian/Websites/Dream/bower_components/html-5-microphone-visualizer/js/index.js	/^          requestAnimationFrame(function update(){$/;"	function	line:34
+doDraw	/Volumes/HDD/Users/Radian/Websites/Dream/bower_components/html-5-microphone-visualizer/js/index.js	/^        var doDraw = function () {$/;"	function	line:47
+soundNotAllowed	/Volumes/HDD/Users/Radian/Websites/Dream/bower_components/html-5-microphone-visualizer/js/index.js	/^    var soundNotAllowed = function (error) {$/;"	function	line:58
